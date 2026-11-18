@@ -14,6 +14,16 @@ public class QuakeServerPlayer extends ServerPlayerBase
 	}
 
 	@Override
+	public void onUpdate()
+	{
+		SpeedCap.clampMotion(this.player);
+
+		super.onUpdate();
+
+		SpeedCap.clampMotion(this.player);
+	}
+
+	@Override
 	public void fall(float fallDistance)
 	{
 		wasVelocityChangedBeforeFall = this.playerAPI.getVelocityChangedField() || this.player.velocityChanged;

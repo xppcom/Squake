@@ -38,3 +38,7 @@ LICENSE.txt
 
 # Misc
 *.rej
+
+.gradle-home/
+run/
+!gradle/wrapper/gradle-wrapper.jar

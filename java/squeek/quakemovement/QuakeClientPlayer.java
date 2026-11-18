@@ -45,9 +45,12 @@ public class QuakeClientPlayer extends ClientPlayerBase
 	@Override
 	public void moveEntityWithHeading(float sidemove, float forwardmove)
 	{
+		SpeedCap.clampMotion(this.player);
+
 		if (!ModConfig.ENABLED)
 		{
 			super.moveEntityWithHeading(sidemove, forwardmove);
+			SpeedCap.clampMotion(this.player);
 			return;
 		}
 
@@ -61,6 +64,8 @@ public class QuakeClientPlayer extends ClientPlayerBase
 			this.quake_moveEntityWithHeading(sidemove, forwardmove);
 
 		this.player.addMovementStat(this.player.posX - d0, this.player.posY - d1, this.player.posZ - d2);
+
+		SpeedCap.clampMotion(this.player);
 	}
 
 	@Override

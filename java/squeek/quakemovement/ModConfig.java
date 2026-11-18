@@ -16,6 +16,9 @@ public class ModConfig
 	private static final String HARD_CAP_NAME = "hardCapThreshold";
 	private static final double HARD_CAP_DEFAULT = 2.0D;
 
+	public static double MAX_SPEED_BLOCKS_PER_SECOND;
+	private static final String MAX_SPEED_NAME = "maxSpeedBlocksPerSecond";
+	private static final double MAX_SPEED_DEFAULT = 200.0D / 3.6D;
 	public static float SOFT_CAP;
 	private static final String SOFT_CAP_NAME = "softCapThreshold";
 	private static final double SOFT_CAP_DEFAULT = 1.4D;
@@ -78,6 +81,7 @@ public class ModConfig
 		MAX_AIR_ACCEL_PER_TICK = config.get(CATEGORY_MOVEMENT, MAX_AIR_ACCEL_PER_TICK_NAME, MAX_AIR_ACCEL_PER_TICK_DEFAULT, "a higher value means faster air acceleration").getDouble(MAX_AIR_ACCEL_PER_TICK_DEFAULT);
 		ACCELERATE = config.get(CATEGORY_MOVEMENT, ACCELERATE_NAME, ACCELERATE_DEFAULT, "a higher value means you accelerate faster on the ground").getDouble(ACCELERATE_DEFAULT);
 		HARD_CAP = (float) (config.get(CATEGORY_MOVEMENT, HARD_CAP_NAME, HARD_CAP_DEFAULT, "see " + UNCAPPED_BUNNYHOP_ENABLED_NAME + "; if you ever jump while above the hard cap speed (moveSpeed*hardCapThreshold), your speed is set to the hard cap speed").getDouble(HARD_CAP_DEFAULT));
+		MAX_SPEED_BLOCKS_PER_SECOND = config.get(CATEGORY_MOVEMENT, MAX_SPEED_NAME, MAX_SPEED_DEFAULT, "hard cap on player speed in blocks per second (1 block = 1 meter, so 200 km/h = 55.56 blocks per second; 1 block per tick = 20 blocks per second), applied every tick; 0 disables the cap").getDouble(MAX_SPEED_DEFAULT);
 		SOFT_CAP = (float) (config.get(CATEGORY_MOVEMENT, SOFT_CAP_NAME, SOFT_CAP_DEFAULT, "see " + UNCAPPED_BUNNYHOP_ENABLED_NAME + " and " + SOFT_CAP_DEGEN_NAME + "; soft cap speed = (moveSpeed*softCapThreshold)").getDouble(SOFT_CAP_DEFAULT));
 		SOFT_CAP_DEGEN = (float) (config.get(CATEGORY_MOVEMENT, SOFT_CAP_DEGEN_NAME, SOFT_CAP_DEGEN_DEFAULT, "the modifier used to calculate speed lost when jumping above the soft cap").getDouble(SOFT_CAP_DEGEN_DEFAULT));
 

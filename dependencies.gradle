@@ -1,0 +1,3 @@
+dependencies {
+    api rfg.deobf("com.github.GTNewHorizons:Player-API:1.6.0")
+}
